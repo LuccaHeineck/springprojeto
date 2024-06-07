@@ -1,8 +1,6 @@
 package com.example.springprojeto;
 
-import com.example.springprojeto.model.DadosSerie;
-import com.example.springprojeto.service.ConsumoAPI;
-import com.example.springprojeto.service.ConverteDados;
+import com.example.springprojeto.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,11 +14,8 @@ public class SpringprojetoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var api = new ConsumoAPI();
-		var json = api.obterDados("https://www.omdbapi.com/?t=gilmore+girls&Season=1&apikey=23c527a2&");
-		System.out.println(json);
-		ConverteDados conversor = new ConverteDados();
-		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
+		Principal principal = new Principal();
+		principal.exibeMenu();
+
 	}
 }
